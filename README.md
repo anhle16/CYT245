@@ -1,2 +1,12 @@
 # CYT245
 CYT 245 YARA
+import "pe"
+rule UPX : Packer
+{
+    strings: 
+        $a = {60 E8 00 00 00 00 58 83 E8 3D 50 8D B8}
+    condition:
+        $a at pe.entry_point
+}
+fksjd
+rule test {condition: false}
